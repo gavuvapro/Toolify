@@ -1,0 +1,5 @@
+import { appName } from "@/lib/utils";
+export const metadata = { title: "Privacy Policy" };
+export default function PrivacyPage() {
+  return <section className="mx-auto max-w-4xl px-6 py-14 prose prose-neutral"><h1>Privacy Policy</h1><p>Last updated: {new Date().toLocaleDateString()}</p><h2>Information We Collect</h2><p>{appName} does not collect personal information. We use anonymous analytics to understand usage patterns.</p><h2>Cookies</h2><p>We may use essential cookies for site functionality. No tracking or advertising cookies are used.</p><h2>Third-Party Services</h2><p>This site may contain links to external services. We are not responsible for their privacy practices.</p><h2>Contact</h2><p>For questions, contact via <a href="https://github.com/yourname/tool-empir">GitHub</a>.</p></section>;
+}

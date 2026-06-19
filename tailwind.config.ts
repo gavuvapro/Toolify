@@ -12,7 +12,10 @@ const config: Config = {
         card: { DEFAULT: "hsl(var(--card))", foreground: "hsl(var(--card-foreground))" },
         accent: { DEFAULT: "hsl(var(--accent))", foreground: "hsl(var(--accent-foreground))" }
       },
-      boxShadow: { glow: "0 0 80px rgba(99,102,241,.24)" }
+      boxShadow: { glow: "0 0 80px rgba(99,102,241,.24)" },
+      transitionProperty: { colors: "color, background-color, border-color, text-decoration-color, fill, stroke", opacity: "opacity", transform: "transform", shadow: "box-shadow" },
+      transitionDuration: { DEFAULT: "200ms", 300: "300ms", 500: "500ms" },
+      transitionTimingFunction: { DEFAULT: "ease-in-out", smooth: "cubic-bezier(0.4, 0, 0.2, 1)" }
     }
   },
   plugins: []

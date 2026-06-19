@@ -2,8 +2,8 @@ import * as React from "react";
 import { Slot } from "@radix-ui/react-slot";
 import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
-const buttonVariants = cva("inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full text-sm font-medium transition-colors disabled:pointer-events-none disabled:opacity-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring", {
-  variants: { variant: { default: "bg-primary text-primary-foreground hover:bg-primary/90", secondary: "bg-muted text-foreground hover:bg-muted/80", outline: "border bg-background hover:bg-muted", ghost: "hover:bg-muted" }, size: { sm: "h-9 px-3", default: "h-10 px-5", lg: "h-12 px-7 text-base" } },
+const buttonVariants = cva("inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full text-sm font-medium transition-colors transition-opacity transition-transform disabled:pointer-events-none disabled:opacity-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring", {
+  variants: { variant: { default: "bg-primary text-primary-foreground hover:bg-primary/90", secondary: "bg-muted text-foreground hover:bg-muted/80", outline: "border bg-background hover:bg-muted", ghost: "hover:bg-muted", transparent: "bg-white/10 dark:bg-white/5 backdrop-blur-xl border border-white/20 text-foreground hover:bg-white/20 dark:hover:bg-white/10" }, size: { sm: "h-9 px-3", default: "h-10 px-5", lg: "h-12 px-7 text-base" } },
   defaultVariants: { variant: "default", size: "default" }
 });
 export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement>, VariantProps<typeof buttonVariants> { asChild?: boolean }

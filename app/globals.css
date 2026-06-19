@@ -14,3 +14,4 @@ body { background: hsl(var(--background)); color: hsl(var(--foreground)); font-f
 :focus-visible { outline: 2px solid hsl(var(--ring)); outline-offset: 2px; }
 .gradient-grid { background-image: radial-gradient(circle at 1px 1px, rgba(99,102,241,.22) 1px, transparent 0); background-size: 28px 28px; }
 .line-clamp-2 { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.scroll-pt-20 { scroll-padding-top: 5rem; }
