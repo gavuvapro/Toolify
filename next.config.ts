@@ -3,6 +3,7 @@ const nextConfig: NextConfig = {
   typedRoutes: false,
   experimental: { optimizePackageImports: ["lucide-react"] },
   poweredByHeader: false,
-  images: { remotePatterns: [{ protocol: "https", hostname: "**" }] }
+  images: { remotePatterns: [{ protocol: "https", hostname: "**" }] },
+  outputFileTracingRoot: __dirname
 };
 export default nextConfig;
