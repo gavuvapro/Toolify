@@ -1,0 +1,112 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Pricing {
+  Free
+  Freemium
+  Paid
+  Subscription
+  LifetimeDeal
+}
+
+enum EaseOfUse {
+  Easy
+  Moderate
+  Advanced
+}
+
+enum Quality {
+  Limited
+  Good
+  Excellent
+}
+
+enum AiCapability {
+  NoAI
+  Addons
+  Native
+}
+
+model Tool {
+  id             String       @id @default(cuid())
+  name           String
+  slug           String       @unique
+  website        String
+  category       String
+  subCategory    String
+  pricing        Pricing
+  budgetRange    String
+  freePlan       Boolean      @default(false)
+  bestFor        String[]
+  advantages     String[]
+  disadvantages  String[]
+  alternatives   String[]
+  platforms      String[]
+  rating         Float        @default(0)
+  tags           String[]
+  featured       Boolean      @default(false)
+  teamSupport    Quality      @default(Good)
+  easeOfUse      EaseOfUse    @default(Moderate)
+  integrations   Quality      @default(Good)
+  aiCapabilities AiCapability @default(NoAI)
+  createdAt      DateTime     @default(now())
+  updatedAt      DateTime     @updatedAt
+  favorites      Favorite[]
+}
+
+model Stack {
+  id          String      @id @default(cuid())
+  slug        String      @unique
+  name        String
+  profession  String
+  description String
+  items       StackItem[]
+  createdAt   DateTime    @default(now())
+}
+
+model StackItem {
+  id      String @id @default(cuid())
+  role    String
+  tool    String
+  stackId String
+  stack   Stack  @relation(fields: [stackId], references: [id], onDelete: Cascade)
+}
+
+model UserCollection {
+  id        String   @id @default(cuid())
+  userId    String
+  name      String
+  toolSlugs String[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([userId])
+}
+
+model Favorite {
+  id        String   @id @default(cuid())
+  userId    String
+  toolId    String
+  tool      Tool     @relation(fields: [toolId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+
+  @@unique([userId, toolId])
+  @@index([userId])
+}
+
+model Contribution {
+  id        String   @id @default(cuid())
+  name      String
+  website   String
+  category  String
+  pricing   String
+  reason    String
+  status    String   @default("pending")
+  createdAt DateTime @default(now())
+}

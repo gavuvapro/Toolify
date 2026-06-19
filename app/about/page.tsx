@@ -1,0 +1,3 @@
+import { appName } from "@/lib/utils";
+export const metadata={title:"About"};
+export default function AboutPage(){ return <section className="mx-auto max-w-4xl px-4 py-14 prose prose-neutral max-w-4xl"><h1>About {appName}</h1><p>{appName} is an open-source library for discovering the best tools for work and everyday life. It combines curated lists, tool profiles, alternatives, comparison tables, and profession-specific stacks.</p><h2>Principles</h2><ul><li>Transparent data files and open contribution model.</li><li>Practical recommendations by budget, platform, profession, and use case.</li><li>Secure-by-default architecture with sanitized user contributions.</li><li>Fast, accessible, responsive UI.</li></ul></section> }

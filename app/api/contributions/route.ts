@@ -1,0 +1,4 @@
+import { NextResponse } from "next/server";
+import { clean, contributionSchema } from "@/lib/validation";
+export async function POST(req: Request) { try { const json = await req.json(); const parsed = contributionSchema.safeParse(json); if (!parsed.success) return NextResponse.json({ message: "Invalid submission", errors: parsed.error.flatten() }, { status: 400 }); const safe = Object.fromEntries(Object.entries(parsed.data).map(([k,v]) => [k, typeof v === "string" ? clean(v) : v])); // Production: store in PostgreSQL with Prisma, create a GitHub issue, or send to moderation queue.
+ return NextResponse.json({ message: "Thanks! Your tool suggestion is ready for moderation.", contribution: safe }, { status: 201 }); } catch { return NextResponse.json({ message: "Bad request" }, { status: 400 }); } }

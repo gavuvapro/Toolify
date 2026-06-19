@@ -1,0 +1,2 @@
+export const metadata={title:"Security"};
+export default function SecurityPage(){ return <section className="mx-auto max-w-4xl px-4 py-14"><h1 className="text-4xl font-bold">Security</h1><p className="mt-4 text-muted-foreground">Tool Empir validates and sanitizes user submissions, uses environment variables for secrets, and is designed for OWASP-aware production deployment. See SECURITY.md for the complete policy.</p></section> }
